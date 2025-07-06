@@ -1,0 +1,943 @@
+/* desa-medalsari.css - REVISED & ENHANCED */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color); /* Updated to use variable */
+    overflow-x: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease; /* Enhanced transition for dark/light mode */
+    background-color: var(--background-color); /* Default background */
+}
+
+/* Custom Color Variables - MODERN PALETTE */
+:root {
+    --primary-green: #4CAF50; /* A vibrant, friendly green */
+    --primary-green-dark: #388E3C; /* Darker shade for interactions */
+    --accent-yellow: #FFC107; /* A warm, engaging yellow */
+    --accent-red: #FF5722; /* A strong, contrasting red for CTAs */
+    --accent-orange: #f0932b; /* Bright orange for numbers */
+    --accent-blue: #2980b9; /* A professional blue */
+
+    --text-color-light: #333333;
+    --secondary-text-color-light: #555555;
+    --background-color-light: #F8F9FA;
+    --card-background-light: #FFFFFF;
+    --border-color-light: #E0E0E0;
+
+    --dark-mode-bg: #1A202C; /* Deep charcoal for dark mode */
+    --dark-mode-card-bg: #2D3748; /* Slightly lighter charcoal for cards */
+    --dark-mode-text: #E2E8F0; /* Off-white for dark mode text */
+    --dark-mode-secondary-text: #A0AEC0; /* Lighter grey for secondary text */
+    --dark-mode-border: #4A5568;
+
+    /* Stats Section Specific Colors (based on your image inspiration) */
+    --stats-gradient-start: #6dd5ed; /* Brighter Blue */
+    --stats-gradient-end: #2193b0; /* Deeper Blue */
+    --stats-number-color: var(--accent-orange); /* Using accent orange for numbers */
+    --stats-label-color: var(--dark-mode-text); /* Off-white for labels */
+
+    /* New Card Specific Colors for variety */
+    --card-color-1: linear-gradient(135deg, #FFD700, #FFA07A); /* Gold to Light Salmon */
+    --card-color-2: linear-gradient(135deg, #8A2BE2, #ADD8E6); /* Blue Violet to Light Blue */
+    --card-color-3: linear-gradient(135deg, #3CB371, #90EE90); /* Medium Sea Green to Light Green */
+    --card-color-4: linear-gradient(135deg, #FF69B4, #FFB6C1); /* Hot Pink to Light Pink */
+    --card-color-5: linear-gradient(135deg, #4682B4, #B0C4DE); /* Steel Blue to Light Steel Blue */
+    --card-color-6: linear-gradient(135deg, #DAA520, #F0E68C); /* Goldenrod to Khaki */
+}
+
+/* Apply light mode variables by default */
+body {
+    --text-color: var(--text-color-light);
+    --secondary-text-color: var(--secondary-text-color-light);
+    --background-color: var(--background-color-light);
+    --card-background-color: var(--card-background-light);
+    --header-footer-background: #212529; /* Darker, sophisticated black */
+    --border-color: var(--border-color-light);
+}
+
+/* Dark Mode Overrides */
+body.dark-mode {
+    --text-color: var(--dark-mode-text);
+    --secondary-text-color: var(--dark-mode-secondary-text);
+    --background-color: var(--dark-mode-bg);
+    --card-background-color: var(--dark-mode-card-bg);
+    --header-footer-background: #000000; /* Pure black for stark dark mode footer */
+    --border-color: var(--dark-mode-border);
+}
+
+
+/* Header & Navigation - UPDATED FOR INITIAL STATE FIX */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--card-background-color); /* Explicitly use solid color, no blur initially */
+    z-index: 1000;
+    /* Add backdrop-filter to transition for smooth effect when it gets applied */
+    transition: all 0.3s ease, background-color 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+    border-bottom: 1px solid var(--border-color); /* Dynamic border color */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+}
+
+.header.scrolled {
+    /* When scrolled, apply the blur and stronger shadow */
+    background-color: var(--card-background-color); /* Consistency on scroll, still solid */
+    backdrop-filter: blur(8px); /* Apply blur only when scrolled */
+    -webkit-backdrop-filter: blur(8px); /* For Safari */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* More pronounced shadow when scrolled */
+}
+
+body.dark-mode .header.scrolled {
+    /* For dark mode, scrolled header is a dark semi-transparent color */
+    background-color: rgba(26, 32, 44, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 5%; /* Slightly reduced padding for a tighter look */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-family: 'Montserrat', sans-serif; /* More impactful font for logo */
+    font-size: 1.6rem; /* Slightly larger */
+    font-weight: 700;
+    color: var(--primary-green);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem; /* Increased gap */
+    transition: color 0.3s ease;
+}
+
+.logo::before {
+    font-size: 2rem; /* Larger emoji */
+}
+/* Gaya untuk container logo (opsional, tergantung layout Anda) */
+.header .logo {
+    display: flex; /* Menggunakan flexbox untuk perataan */
+    align-items: center; /* Menyelaraskan item secara vertikal di tengah */
+    gap: 10px; /* Jarak antara gambar dan teks */
+    /* Anda mungkin perlu menyesuaikan margin/padding di sini */
+}
+
+/* Gaya untuk gambar logo */
+.header-logo-img {
+    height: 40px; /* Atur tinggi gambar sesuai keinginan */
+    width: 45px;
+}
+
+
+/* Contoh gaya untuk dark mode (jika Anda memiliki implementasinya) */
+.dark-mode .header-logo-text {
+    color: #eee; /* Warna teks untuk dark mode */
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2.2rem; /* Increased gap for better spacing */
+    align-items: center;
+}
+
+.nav-links li {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.2s ease; /* Added transform for subtle hover */
+    position: relative;
+    padding: 5px 0; /* Add padding for clickable area */
+}
+
+.nav-links a:hover {
+    color: var(--primary-green);
+    transform: translateY(-2px); /* Lift slightly on hover */
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -8px; /* Adjusted position */
+    left: 0;
+    width: 0;
+    height: 3px; /* Thicker underline */
+    background: var(--primary-green);
+    transition: width 0.3s ease, background 0.3s ease;
+    border-radius: 2px;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-links a.active {
+    color: var(--primary-green);
+    font-weight: 600;
+}
+
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    width: 30px; /* Make hamburger icon wider */
+    height: 20px; /* Make hamburger icon taller */
+    justify-content: space-around;
+    padding: 2px 0;
+}
+
+.mobile-menu span {
+    width: 100%;
+    height: 3px;
+    background: var(--text-color);
+    margin: 2px 0; /* Adjusted margin */
+    transition: 0.3s ease-in-out;
+    border-radius: 2px;
+}
+
+.nav-links.active + .mobile-menu span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+.nav-links.active + .mobile-menu span:nth-child(2) {
+    opacity: 0;
+}
+.nav-links.active + .mobile-menu span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate; /* Ensures z-index context for overlay */
+}
+
+.background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1; /* Place behind content */
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Darker overlay for better text contrast */
+    z-index: 1;
+}
+
+.hero-content {
+    z-index: 2;
+    max-width: 900px; /* Slightly wider for more impact */
+    padding: 0 2rem;
+    animation: fadeInUp 1.2s ease forwards; /* Slower, smoother animation */
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.7); /* Stronger text shadow */
+}
+
+.hero h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4rem; /* Larger, more impactful heading */
+    margin-bottom: 1.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.4rem; /* Larger paragraph text */
+    margin-bottom: 2.5rem;
+    opacity: 0.98;
+    line-height: 1.5;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1.1rem 2.5rem; /* More generous padding */
+    background: var(--accent-red); /* Using accent red */
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(255, 87, 34, 0.4); /* Stronger shadow */
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px) scale(1.02); /* More pronounced lift and slight scale */
+    box-shadow: 0 10px 30px rgba(255, 87, 34, 0.6);
+    background: #E64A19; /* Slightly darker red on hover */
+}
+
+.cta-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.4s ease;
+    transform: skewX(-20deg);
+}
+
+.cta-button:hover::after {
+    left: 100%;
+}
+
+/* Sections */
+.section {
+    padding: 6rem 5%; /* More vertical padding for breathing room */
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative; /* For potential future layered animations */
+}
+
+.section-title {
+    text-align: center;
+    font-size: 3rem; /* Larger title */
+    margin-bottom: 3.5rem;
+    color: var(--primary-green-dark); /* Darker green for title */
+    position: relative;
+    transition: color 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px; /* Lower underline */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px; /* Wider underline */
+    height: 5px; /* Thicker underline */
+    background: linear-gradient(90deg, var(--accent-red), var(--primary-green)); /* Red to green gradient */
+    border-radius: 3px;
+}
+
+/* Info Cards (if present, will adopt UMKM card styling for consistency) */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem; /* Increased gap */
+    margin-top: 4rem;
+}
+
+/* UMKM & Wisata Cards - Unified Aesthetic */
+.umkm-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjusted minwidth for better mobile flow */
+    gap: 2.5rem; /* Increased gap */
+    margin-top: 4rem;
+}
+
+.umkm-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.umkm-card {
+    background: var(--card-background-color);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 18px; /* More rounded corners */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Softer, more pronounced shadow */
+    transition: all 0.3s ease;
+    overflow: hidden; /* Ensures image corners are rounded */
+    position: relative; /* Needed for hover overlay */
+}
+
+/* Dynamic background gradient for cards on hover */
+.umkm-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%; /* Start from 0 height */
+    background: var(--card-color-1); /* Default gradient, overridden by nth-child */
+    transition: height 0.4s ease-out;
+    z-index: 1; /* Place behind content for initial hover effect */
+}
+
+/* Assign different gradients to cards */
+.umkm-grid .umkm-card-link:nth-child(1) .umkm-card::before { background: var(--card-color-1); }
+.umkm-grid .umkm-card-link:nth-child(2) .umkm-card::before { background: var(--card-color-2); }
+.umkm-grid .umkm-card-link:nth-child(3) .umkm-card::before { background: var(--card-color-3); }
+.umkm-grid .umkm-card-link:nth-child(4) .umkm-card::before { background: var(--card-color-4); }
+.umkm-grid .umkm-card-link:nth-child(5) .umkm-card::before { background: var(--card-color-5); }
+.umkm-grid .umkm-card-link:nth-child(6) .umkm-card::before { background: var(--card-color-6); }
+/* Add more nth-child rules for more cards if needed */
+
+
+.umkm-card:hover {
+    transform: translateY(-8px); /* More noticeable lift */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.umkm-card:hover::before {
+    height: 100%; /* Expand height on hover */
+}
+
+.umkm-image {
+    height: 220px; /* Slightly taller image area */
+    width: 100%;
+    overflow: hidden;
+    border-radius: 18px 18px 0 0; /* Rounded top corners */
+    position: relative;
+    z-index: 3; /* <---- INI ADALAH PERBAIKANNYA */
+    background: linear-gradient(45deg, var(--primary-green-dark), var(--primary-green)); /* Subtle gradient placeholder */
+}
+
+.umkm-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease; /* Smooth zoom effect on hover */
+}
+
+.umkm-card:hover .umkm-image img {
+    transform: scale(1.08); /* Slight zoom on image */
+}
+
+.umkm-content {
+    padding: 1.8rem; /* More padding inside content */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Ensure content is above the pseudo-element */
+    z-index: 2; /* Content must be above the ::before pseudo-element */
+}
+
+.umkm-card:hover .umkm-content {
+    color: white; /* Change text color to white on hover */
+    transition: color 0.4s ease-out;
+}
+
+.umkm-card:hover .umkm-content h3 {
+    color: white; /* Ensure heading color changes */
+}
+.umkm-card:hover .umkm-content p {
+    color: rgba(255, 255, 255, 0.9); /* Ensure paragraph color changes */
+}
+.umkm-card:hover .umkm-category {
+    color: rgba(255, 255, 255, 0.8); /* Ensure category color changes */
+}
+.umkm-card:hover .umkm-contact {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+.umkm-card:hover .umkm-contact .contact-item {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+
+.umkm-content h3 {
+    color: var(--primary-green);
+    margin-bottom: 0.6rem;
+    font-size: 1.4rem; /* Larger title */
+    font-weight: 600;
+}
+
+.umkm-category {
+    color: var(--accent-blue); /* Blue for category */
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+}
+
+.umkm-content p {
+    color: var(--secondary-text-color);
+    margin-bottom: 1.5rem; /* More space below description */
+    flex-grow: 1;
+    font-size: 0.95rem;
+}
+
+.umkm-contact {
+    background: var(--background-color);
+    padding: 1.2rem; /* More padding */
+    border-radius: 10px; /* Slightly more rounded */
+    margin-top: 1.5rem; /* More space above contact */
+    border: 1px solid var(--border-color); /* Subtle border */
+    position: relative;
+    z-index: 2; /* Ensure contact info is above the pseudo-element */
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+}
+.contact-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Statistics Section - ENHANCED VISUALS */
+.stats {
+    background: linear-gradient(90deg, var(--stats-gradient-start), var(--stats-gradient-end)); /* Vibrant blue gradient */
+    color: white;
+    text-align: center;
+    transition: background 0.4s ease;
+    padding: 6rem 5%;
+    position: relative;
+    overflow: hidden; /* For any background elements */
+}
+
+.stats .section-title {
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+.stats .section-title::after {
+    background: var(--accent-orange); /* Orange underline for contrast */
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjusted for more flexibility */
+    gap: 2.5rem;
+    margin-top: 4rem;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.15); /* Slightly more opaque background */
+    backdrop-filter: blur(8px); /* More blur for modern glass effect */
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 3rem 1.8rem; /* More padding */
+    border-radius: 20px; /* More rounded */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-item::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 0%, transparent 70%);
+    transition: transform 0.5s ease-out;
+    transform: scale(0);
+}
+
+.stat-item:hover::before {
+    transform: scale(1);
+}
+
+.stat-item:hover {
+    transform: translateY(-12px); /* Stronger lift on hover */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35); /* Much stronger shadow */
+    background: rgba(255, 255, 255, 0.25); /* More opaque on hover */
+    border-color: rgba(255, 255, 255, 0.5); /* Stronger border on hover */
+}
+
+.stat-number {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4rem; /* Even larger numbers */
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    color: var(--stats-number-color);
+    transition: color 0.3s ease;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+}
+
+.stat-label {
+    font-size: 1.3rem; /* Larger, clearer labels */
+    opacity: 0.98;
+    color: var(--stats-label-color);
+    line-height: 1.4;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+/* Footer */
+.footer {
+    background: var(--header-footer-background);
+    color: var(--dark-mode-secondary-text); /* Uses secondary text for lighter contrast */
+    padding: 4rem 5%; /* More padding */
+    text-align: center;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.footer h3 {
+    color: var(--primary-green); /* Primary green for footer title */
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    transition: color 0.3s ease;
+}
+
+.footer p {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem; /* Wider gap */
+    margin: 2.5rem 0;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: var(--dark-mode-secondary-text); /* Consistent with other text */
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
+    font-weight: 500;
+}
+
+.footer-links a:hover {
+    color: var(--accent-yellow); /* Yellow on hover for footer links */
+    transform: translateY(-3px);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px); /* Larger initial translation */
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother cubic-bezier ease */
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Styling for Dark Mode Switch Toggle --- */
+.dark-mode-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px; /* Wider switch */
+    height: 34px; /* Taller switch */
+    margin-left: 2rem;
+    cursor: pointer;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+    border-radius: 34px;
+}
+
+.dark-mode-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #E0E0E0; /* Light grey for light mode off state */
+    transition: 0.4s;
+    border-radius: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px; /* More padding */
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+}
+
+input:checked + .slider {
+    background-color: var(--primary-green);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5); /* Accent green glow on focus */
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px; /* Larger toggle circle */
+    width: 26px; /* Larger toggle circle */
+    left: 4px; /* Adjusted position */
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.3); /* Stronger shadow */
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px); /* Adjusted translation */
+}
+
+/* Icon centering fix (from previous step) */
+.light-icon, .dark-icon {
+    position: absolute;
+    font-size: 1.2rem; /* Ukuran ikon, sesuaikan jika perlu */
+    line-height: 1; /* Pastikan tinggi baris 1 untuk centering vertikal */
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    top: 50%;
+    transform: translateY(-50%); /* Centering vertikal */
+    display: flex; /* Menggunakan flexbox untuk centering horizontal */
+    align-items: center; /* Centering vertikal flex */
+    justify-content: center; /* Centering horizontal flex */
+    width: 26px; /* Memberikan lebar yang sama dengan lingkaran slider */
+    height: 26px; /* Memberikan tinggi yang sama dengan lingkaran slider */
+    pointer-events: none; /* Agar klik tetap tembus ke checkbox */
+}
+
+.light-icon {
+    left: 4px; /* Posisi sama dengan lingkaran slider */
+    color: #FFD54F; /* Bright yellow */
+}
+
+.dark-icon {
+    right: 4px; /* Posisi sama dengan lingkaran slider, dari kanan */
+    color: #90CAF9; /* Light blue for moon */
+    opacity: 0;
+    /* Hilangkan translateX di sini, karena kita akan mengatur posisi akhir dengan JS jika diperlukan */
+    transform: translateY(-50%); /* Hanya translateY karena left/right mengatur posisi horizontal */
+}
+
+/* Perbarui transisi translateX untuk ikon saat mode gelap aktif */
+input:checked + .slider .light-icon {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-26px); /* Geser sejauh lebar lingkaran agar benar-benar hilang */
+}
+
+input:checked + .slider .dark-icon {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0); /* Kembali ke posisi semula (kanan) */
+}
+
+/* Dark Mode specific styles for the switch */
+body.dark-mode .slider {
+    background-color: #4A5568; /* Darker grey for off state in dark mode */
+}
+
+body.dark-mode input:checked + .slider {
+    background-color: var(--primary-green);
+}
+
+body.dark-mode .slider:before {
+    background-color: #E2E8F0; /* Off-white for toggle circle in dark mode */
+}
+
+
+/* Responsive Design */
+@media (max-width: 992px) { /* Increased breakpoint for better tablet support */
+    .nav-links {
+        gap: 1.5rem;
+    }
+    .hero h1 {
+        font-size: 3.2rem;
+    }
+    .hero p {
+        font-size: 1.2rem;
+    }
+    .section-title {
+        font-size: 2.5rem;
+    }
+    .umkm-grid, .info-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+    .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1.5rem;
+    }
+    .stat-number {
+        font-size: 3rem;
+    }
+    .stat-label {
+        font-size: 1.1rem;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: fixed; /* Use fixed for better mobile menu overlay */
+        top: 60px; /* Below header */
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 60px); /* Full height minus header */
+        background: var(--card-background-color);
+        flex-direction: column;
+        padding: 2rem 5%;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        overflow-y: auto; /* Enable scrolling for many links */
+        transform: translateX(-100%); /* Start off-screen */
+        transition: transform 0.4s ease-out; /* Smooth slide-in */
+        align-items: flex-start; /* Align links to the left */
+        gap: 1.5rem; /* Spacing between mobile links */
+    }
+
+    .nav-links.active {
+        display: flex;
+        transform: translateX(0);
+    }
+
+    .mobile-menu {
+        display: flex;
+    }
+
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .section {
+        padding: 4rem 5%;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    .umkm-grid, .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+
+    body.dark-mode .nav-links {
+        background: var(--dark-mode-card-bg);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+}
+
+@media (max-width: 480px) {
+    .nav {
+        padding: 0.8rem 3%;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+    }
+    .logo::before {
+        font-size: 1.6rem;
+    }
+
+    .section {
+        padding: 3rem 3%;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+    .cta-button {
+        padding: 0.9rem 2rem;
+        font-size: 0.9rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .umkm-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .umkm-category {
+        font-size: 0.85rem;
+    }
+
+    .umkm-content p {
+        font-size: 0.9rem;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+    }
+
+    .stat-label {
+        font-size: 1rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dark-mode-switch {
+        margin-left: 1rem;
+    }
+}
