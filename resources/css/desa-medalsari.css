@@ -1,50 +1,55 @@
-/* desa-medalsari.css - REVISED & ENHANCED */
+/* desa-medalsari.css - KODE LENGKAP TERBARU */
 
+/* Import font dari Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700&display=swap');
 
+/* Reset dasar CSS */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Gaya dasar body */
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacMacSystemFont, sans-serif;
     line-height: 1.6;
-    color: var(--text-color); /* Updated to use variable */
+    color: var(--text-color); /* Menggunakan variabel warna teks */
     overflow-x: hidden;
-    transition: background-color 0.4s ease, color 0.4s ease; /* Enhanced transition for dark/light mode */
-    background-color: var(--background-color); /* Default background */
+    transition: background-color 0.4s ease, color 0.4s ease; /* Transisi untuk dark/light mode */
+    background-color: var(--background-color); /* Background default */
 }
 
-/* Custom Color Variables - MODERN PALETTE */
+/* Variabel Warna Kustom - PALET BARU */
 :root {
-    --primary-green: #4CAF50; /* A vibrant, friendly green */
-    --primary-green-dark: #388E3C; /* Darker shade for interactions */
-    --accent-yellow: #FFC107; /* A warm, engaging yellow */
-    --accent-red: #FF5722; /* A strong, contrasting red for CTAs */
-    --accent-orange: #f0932b; /* Bright orange for numbers */
-    --accent-blue: #2980b9; /* A professional blue */
+    --primary-green: #7fb299; /* Warna hijau kebiruan utama yang diminta */
+    --primary-green-dark: #6a9a82; /* Versi lebih gelap dari primary green */
+    --accent-yellow: #FFC107; /* Kuning aksen, cerah dan menarik */
+    --accent-red: #FF5722; /* Merah kuat untuk CTA */
+    --accent-orange: #f0932b; /* Oranye cerah untuk angka statistik */
+    --accent-blue: #2980b9; /* Biru profesional */
 
+    /* Warna untuk Mode Terang */
     --text-color-light: #333333;
     --secondary-text-color-light: #555555;
-    --background-color-light: #F8F9FA;
-    --card-background-light: #FFFFFF;
-    --border-color-light: #E0E0E0;
+    --background-color-light: #F8F9FA; /* Background sangat terang */
+    --card-background-light: #FFFFFF; /* Kartu putih bersih */
+    --border-color-light: #E0E0E0; /* Border abu-abu terang */
 
-    --dark-mode-bg: #1A202C; /* Deep charcoal for dark mode */
-    --dark-mode-card-bg: #2D3748; /* Slightly lighter charcoal for cards */
-    --dark-mode-text: #E2E8F0; /* Off-white for dark mode text */
-    --dark-mode-secondary-text: #A0AEC0; /* Lighter grey for secondary text */
-    --dark-mode-border: #4A5568;
+    /* Warna untuk Mode Gelap */
+    --dark-mode-bg: #1A202C; /* Background gelap (Deep charcoal) */
+    --dark-mode-card-bg: #2D3748; /* Background kartu lebih terang (Slightly lighter charcoal) */
+    --dark-mode-text: #E2E8F0; /* Teks off-white untuk kontras */
+    --dark-mode-secondary-text: #A0AEC0; /* Teks abu-abu terang untuk sekunder */
+    --dark-mode-border: #4A5568; /* Border di mode gelap */
 
-    /* Stats Section Specific Colors (based on your image inspiration) */
-    --stats-gradient-start: #6dd5ed; /* Brighter Blue */
-    --stats-gradient-end: #2193b0; /* Deeper Blue */
-    --stats-number-color: var(--accent-orange); /* Using accent orange for numbers */
-    --stats-label-color: var(--dark-mode-text); /* Off-white for labels */
+    /* Warna Spesifik Bagian Statistik */
+    --stats-gradient-start: #6dd5ed; /* Biru cerah */
+    --stats-gradient-end: #2193b0; /* Biru gelap */
+    --stats-number-color: var(--accent-orange); /* Angka dengan aksen oranye */
+    --stats-label-color: var(--dark-mode-text); /* Label dengan teks off-white */
 
-    /* New Card Specific Colors for variety */
+    /* Warna Gradasi Spesifik untuk Kartu (opsional, untuk variasi visual) */
     --card-color-1: linear-gradient(135deg, #FFD700, #FFA07A); /* Gold to Light Salmon */
     --card-color-2: linear-gradient(135deg, #8A2BE2, #ADD8E6); /* Blue Violet to Light Blue */
     --card-color-3: linear-gradient(135deg, #3CB371, #90EE90); /* Medium Sea Green to Light Green */
@@ -53,51 +58,48 @@ body {
     --card-color-6: linear-gradient(135deg, #DAA520, #F0E68C); /* Goldenrod to Khaki */
 }
 
-/* Apply light mode variables by default */
+/* Terapkan variabel light mode sebagai default */
 body {
     --text-color: var(--text-color-light);
     --secondary-text-color: var(--secondary-text-color-light);
     --background-color: var(--background-color-light);
     --card-background-color: var(--card-background-light);
-    --header-footer-background: #212529; /* Darker, sophisticated black */
+    --header-footer-background: #212529; /* Hitam gelap untuk header/footer */
     --border-color: var(--border-color-light);
 }
 
-/* Dark Mode Overrides */
+/* Overrides untuk Mode Gelap */
 body.dark-mode {
     --text-color: var(--dark-mode-text);
     --secondary-text-color: var(--dark-mode-secondary-text);
     --background-color: var(--dark-mode-bg);
     --card-background-color: var(--dark-mode-card-bg);
-    --header-footer-background: #000000; /* Pure black for stark dark mode footer */
+    --header-footer-background: #000000; /* Hitam murni untuk footer dark mode */
     --border-color: var(--dark-mode-border);
 }
 
 
-/* Header & Navigation - UPDATED FOR INITIAL STATE FIX */
+/* Header & Navigation */
 .header {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: var(--card-background-color); /* Explicitly use solid color, no blur initially */
+    background-color: var(--card-background-color); /* Menggunakan warna solid dari variabel */
     z-index: 1000;
-    /* Add backdrop-filter to transition for smooth effect when it gets applied */
     transition: all 0.3s ease, background-color 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
-    border-bottom: 1px solid var(--border-color); /* Dynamic border color */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    border-bottom: 1px solid var(--border-color); /* Warna border dinamis */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Shadow tipis */
 }
 
 .header.scrolled {
-    /* When scrolled, apply the blur and stronger shadow */
-    background-color: var(--card-background-color); /* Consistency on scroll, still solid */
-    backdrop-filter: blur(8px); /* Apply blur only when scrolled */
-    -webkit-backdrop-filter: blur(8px); /* For Safari */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* More pronounced shadow when scrolled */
+    background-color: var(--card-background-color); /* Tetap solid saat digulir */
+    backdrop-filter: blur(8px); /* Terapkan blur hanya saat digulir */
+    -webkit-backdrop-filter: blur(8px); /* Untuk Safari */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Shadow lebih menonjol */
 }
 
 body.dark-mode .header.scrolled {
-    /* For dark mode, scrolled header is a dark semi-transparent color */
-    background-color: rgba(26, 32, 44, 0.95);
+    background-color: rgba(26, 32, 44, 0.95); /* Warna semi-transparan gelap */
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
@@ -107,48 +109,41 @@ body.dark-mode .header.scrolled {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.8rem 5%; /* Slightly reduced padding for a tighter look */
+    padding: 0.8rem 5%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .logo {
-    font-family: 'Montserrat', sans-serif; /* More impactful font for logo */
-    font-size: 1.6rem; /* Slightly larger */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem;
     font-weight: 700;
-    color: var(--primary-green);
+    color: var(--primary-green); /* Menggunakan primary-green */
     display: flex;
     align-items: center;
-    gap: 0.6rem; /* Increased gap */
+    gap: 0.6rem;
     transition: color 0.3s ease;
 }
 
 .logo::before {
-    font-size: 2rem; /* Larger emoji */
-}
-/* Gaya untuk container logo (opsional, tergantung layout Anda) */
-.header .logo {
-    display: flex; /* Menggunakan flexbox untuk perataan */
-    align-items: center; /* Menyelaraskan item secara vertikal di tengah */
-    gap: 10px; /* Jarak antara gambar dan teks */
-    /* Anda mungkin perlu menyesuaikan margin/padding di sini */
+    font-size: 2rem;
 }
 
-/* Gaya untuk gambar logo */
+/* Gaya untuk gambar logo (jika ada) */
 .header-logo-img {
-    height: 40px; /* Atur tinggi gambar sesuai keinginan */
+    height: 40px;
     width: 45px;
 }
 
-
-/* Contoh gaya untuk dark mode (jika Anda memiliki implementasinya) */
-.dark-mode .header-logo-text {
-    color: #eee; /* Warna teks untuk dark mode */
+/* Gaya untuk teks logo di dark mode (jika berbeda dari --primary-green) */
+body.dark-mode .logo {
+    color: var(--primary-green); /* Tetap primary-green di dark mode agar konsisten */
 }
+
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 2.2rem; /* Increased gap for better spacing */
+    gap: 2.2rem;
     align-items: center;
 }
 
@@ -159,26 +154,26 @@ body.dark-mode .header.scrolled {
 
 .nav-links li a {
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--text-color); /* Menggunakan variabel teks */
     font-weight: 500;
-    transition: color 0.3s ease, transform 0.2s ease; /* Added transform for subtle hover */
+    transition: color 0.3s ease, transform 0.2s ease;
     position: relative;
-    padding: 5px 0; /* Add padding for clickable area */
+    padding: 5px 0;
 }
 
 .nav-links a:hover {
-    color: var(--primary-green);
-    transform: translateY(-2px); /* Lift slightly on hover */
+    color: var(--primary-green); /* Menggunakan primary-green */
+    transform: translateY(-2px);
 }
 
 .nav-links a::after {
     content: '';
     position: absolute;
-    bottom: -8px; /* Adjusted position */
+    bottom: -8px;
     left: 0;
     width: 0;
-    height: 3px; /* Thicker underline */
-    background: var(--primary-green);
+    height: 3px;
+    background: var(--primary-green); /* Menggunakan primary-green */
     transition: width 0.3s ease, background 0.3s ease;
     border-radius: 2px;
 }
@@ -189,7 +184,7 @@ body.dark-mode .header.scrolled {
 }
 
 .nav-links a.active {
-    color: var(--primary-green);
+    color: var(--primary-green); /* Menggunakan primary-green */
     font-weight: 600;
 }
 
@@ -197,8 +192,8 @@ body.dark-mode .header.scrolled {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    width: 30px; /* Make hamburger icon wider */
-    height: 20px; /* Make hamburger icon taller */
+    width: 30px;
+    height: 20px;
     justify-content: space-around;
     padding: 2px 0;
 }
@@ -206,8 +201,8 @@ body.dark-mode .header.scrolled {
 .mobile-menu span {
     width: 100%;
     height: 3px;
-    background: var(--text-color);
-    margin: 2px 0; /* Adjusted margin */
+    background: var(--text-color); /* Menggunakan variabel teks */
+    margin: 2px 0;
     transition: 0.3s ease-in-out;
     border-radius: 2px;
 }
@@ -232,7 +227,7 @@ body.dark-mode .header.scrolled {
     color: white;
     position: relative;
     overflow: hidden;
-    isolation: isolate; /* Ensures z-index context for overlay */
+    isolation: isolate;
 }
 
 .background-video {
@@ -243,7 +238,7 @@ body.dark-mode .header.scrolled {
     min-height: 100%;
     width: auto;
     height: auto;
-    z-index: -1; /* Place behind content */
+    z-index: -1;
     transform: translate(-50%, -50%);
     object-fit: cover;
 }
@@ -255,28 +250,28 @@ body.dark-mode .header.scrolled {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Darker overlay for better text contrast */
+    background: rgba(0, 0, 0, 0.5); /* Overlay gelap */
     z-index: 1;
 }
 
 .hero-content {
     z-index: 2;
-    max-width: 900px; /* Slightly wider for more impact */
+    max-width: 900px;
     padding: 0 2rem;
-    animation: fadeInUp 1.2s ease forwards; /* Slower, smoother animation */
-    text-shadow: 3px 3px 6px rgba(0,0,0,0.7); /* Stronger text shadow */
+    animation: fadeInUp 1.2s ease forwards;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
 }
 
 .hero h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 4rem; /* Larger, more impactful heading */
+    font-size: 4rem;
     margin-bottom: 1.2rem;
     font-weight: 700;
     line-height: 1.2;
 }
 
 .hero p {
-    font-size: 1.4rem; /* Larger paragraph text */
+    font-size: 1.4rem;
     margin-bottom: 2.5rem;
     opacity: 0.98;
     line-height: 1.5;
@@ -284,22 +279,22 @@ body.dark-mode .header.scrolled {
 
 .cta-button {
     display: inline-block;
-    padding: 1.1rem 2.5rem; /* More generous padding */
-    background: var(--accent-red); /* Using accent red */
+    padding: 1.1rem 2.5rem;
+    background: var(--accent-red); /* Menggunakan accent-red */
     color: white;
     text-decoration: none;
     border-radius: 50px;
     font-weight: 600;
     transition: all 0.3s ease;
-    box-shadow: 0 6px 20px rgba(255, 87, 34, 0.4); /* Stronger shadow */
+    box-shadow: 0 6px 20px rgba(255, 87, 34, 0.4);
     position: relative;
     overflow: hidden;
 }
 
 .cta-button:hover {
-    transform: translateY(-3px) scale(1.02); /* More pronounced lift and slight scale */
+    transform: translateY(-3px) scale(1.02);
     box-shadow: 0 10px 30px rgba(255, 87, 34, 0.6);
-    background: #E64A19; /* Slightly darker red on hover */
+    background: #E64A19;
 }
 
 .cta-button::after {
@@ -320,17 +315,17 @@ body.dark-mode .header.scrolled {
 
 /* Sections */
 .section {
-    padding: 6rem 5%; /* More vertical padding for breathing room */
+    padding: 6rem 5%;
     max-width: 1200px;
     margin: 0 auto;
-    position: relative; /* For potential future layered animations */
+    position: relative;
 }
 
 .section-title {
     text-align: center;
-    font-size: 3rem; /* Larger title */
+    font-size: 3rem;
     margin-bottom: 3.5rem;
-    color: var(--primary-green-dark); /* Darker green for title */
+    color: var(--primary-green-dark); /* Menggunakan primary-green-dark */
     position: relative;
     transition: color 0.3s ease;
     font-family: 'Montserrat', sans-serif;
@@ -340,28 +335,28 @@ body.dark-mode .header.scrolled {
 .section-title::after {
     content: '';
     position: absolute;
-    bottom: -15px; /* Lower underline */
+    bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px; /* Wider underline */
-    height: 5px; /* Thicker underline */
-    background: linear-gradient(90deg, var(--accent-red), var(--primary-green)); /* Red to green gradient */
+    width: 100px;
+    height: 5px;
+    background: linear-gradient(90deg, var(--accent-red), var(--primary-green)); /* Gradasi merah ke hijau */
     border-radius: 3px;
 }
 
-/* Info Cards (if present, will adopt UMKM card styling for consistency) */
+/* Info Cards (jika ada, akan mengikuti gaya kartu UMKM) */
 .info-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2.5rem; /* Increased gap */
+    gap: 2.5rem;
     margin-top: 4rem;
 }
 
-/* UMKM & Wisata Cards - Unified Aesthetic */
+/* UMKM & Wisata Cards - Estetika Terpadu */
 .umkm-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjusted minwidth for better mobile flow */
-    gap: 2.5rem; /* Increased gap */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
     margin-top: 4rem;
 }
 
@@ -377,53 +372,52 @@ body.dark-mode .header.scrolled {
     height: 100%;
     display: flex;
     flex-direction: column;
-    border-radius: 18px; /* More rounded corners */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Softer, more pronounced shadow */
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    overflow: hidden; /* Ensures image corners are rounded */
-    position: relative; /* Needed for hover overlay */
+    overflow: hidden;
+    position: relative;
 }
 
-/* Dynamic background gradient for cards on hover */
+/* Gradasi latar belakang dinamis untuk kartu saat hover */
 .umkm-card::before {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 0%; /* Start from 0 height */
-    background: var(--card-color-1); /* Default gradient, overridden by nth-child */
+    height: 0%;
+    background: var(--card-color-1); /* Gradasi default, akan ditimpa oleh nth-child */
     transition: height 0.4s ease-out;
-    z-index: 1; /* Place behind content for initial hover effect */
+    z-index: 1; /* Di belakang konten */
 }
 
-/* Assign different gradients to cards */
-.umkm-grid .umkm-card-link:nth-child(1) .umkm-card::before { background: var(--card-color-1); }
-.umkm-grid .umkm-card-link:nth-child(2) .umkm-card::before { background: var(--card-color-2); }
-.umkm-grid .umkm-card-link:nth-child(3) .umkm-card::before { background: var(--card-color-3); }
-.umkm-grid .umkm-card-link:nth-child(4) .umkm-card::before { background: var(--card-color-4); }
-.umkm-grid .umkm-card-link:nth-child(5) .umkm-card::before { background: var(--card-color-5); }
-.umkm-grid .umkm-card-link:nth-child(6) .umkm-card::before { background: var(--card-color-6); }
-/* Add more nth-child rules for more cards if needed */
+/* Tetapkan gradasi berbeda untuk setiap kartu */
+.umkm-grid .umkm-card-link:nth-child(1) .umkm-card::before { background: linear-gradient(135deg, #7fb299, #aed581); } /* PRIMARY GREEN */
+.umkm-grid .umkm-card-link:nth-child(2) .umkm-card::before { background: linear-gradient(135deg, #4CAF50, #8BC34A); } /* GREEN */
+.umkm-grid .umkm-card-link:nth-child(3) .umkm-card::before { background: linear-gradient(135deg, #2980b9, #3498db); } /* BLUE */
+.umkm-grid .umkm-card-link:nth-child(4) .umkm-card::before { background: linear-gradient(135deg, #FFC107, #FFEB3B); } /* YELLOW */
+.umkm-grid .umkm-card-link:nth-child(5) .umkm-card::before { background: linear-gradient(135deg, #FF5722, #FF9800); } /* ORANGE-RED */
+.umkm-grid .umkm-card-link:nth-child(6) .umkm-card::before { background: linear-gradient(135deg, #9C27B0, #E040FB); } /* PURPLE (Contoh jika ingin ada variasi warna lain) */
 
 
 .umkm-card:hover {
-    transform: translateY(-8px); /* More noticeable lift */
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
 .umkm-card:hover::before {
-    height: 100%; /* Expand height on hover */
+    height: 100%;
 }
 
 .umkm-image {
-    height: 220px; /* Slightly taller image area */
+    height: 220px;
     width: 100%;
     overflow: hidden;
-    border-radius: 18px 18px 0 0; /* Rounded top corners */
+    border-radius: 18px 18px 0 0;
     position: relative;
-    z-index: 3; /* <---- INI ADALAH PERBAIKANNYA */
-    background: linear-gradient(45deg, var(--primary-green-dark), var(--primary-green)); /* Subtle gradient placeholder */
+    z-index: 3; /* Pastikan gambar di atas pseudo-element */
+    background: linear-gradient(45deg, var(--primary-green-dark), var(--primary-green)); /* Gradasi placeholder */
 }
 
 .umkm-image img {
@@ -431,35 +425,35 @@ body.dark-mode .header.scrolled {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.4s ease; /* Smooth zoom effect on hover */
+    transition: transform 0.4s ease;
 }
 
 .umkm-card:hover .umkm-image img {
-    transform: scale(1.08); /* Slight zoom on image */
+    transform: scale(1.08);
 }
 
 .umkm-content {
-    padding: 1.8rem; /* More padding inside content */
+    padding: 1.8rem;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    position: relative; /* Ensure content is above the pseudo-element */
-    z-index: 2; /* Content must be above the ::before pseudo-element */
+    position: relative;
+    z-index: 2; /* Pastikan konten di atas pseudo-element */
 }
 
 .umkm-card:hover .umkm-content {
-    color: white; /* Change text color to white on hover */
+    color: white; /* Teks putih saat hover */
     transition: color 0.4s ease-out;
 }
 
 .umkm-card:hover .umkm-content h3 {
-    color: white; /* Ensure heading color changes */
+    color: white;
 }
 .umkm-card:hover .umkm-content p {
-    color: rgba(255, 255, 255, 0.9); /* Ensure paragraph color changes */
+    color: rgba(255, 255, 255, 0.9);
 }
 .umkm-card:hover .umkm-category {
-    color: rgba(255, 255, 255, 0.8); /* Ensure category color changes */
+    color: rgba(255, 255, 255, 0.8);
 }
 .umkm-card:hover .umkm-contact {
     background: rgba(255, 255, 255, 0.2);
@@ -473,12 +467,12 @@ body.dark-mode .header.scrolled {
 .umkm-content h3 {
     color: var(--primary-green);
     margin-bottom: 0.6rem;
-    font-size: 1.4rem; /* Larger title */
+    font-size: 1.4rem;
     font-weight: 600;
 }
 
 .umkm-category {
-    color: var(--accent-blue); /* Blue for category */
+    color: var(--accent-blue); /* Biru untuk kategori */
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 1.2rem;
@@ -486,19 +480,19 @@ body.dark-mode .header.scrolled {
 
 .umkm-content p {
     color: var(--secondary-text-color);
-    margin-bottom: 1.5rem; /* More space below description */
+    margin-bottom: 1.5rem;
     flex-grow: 1;
     font-size: 0.95rem;
 }
 
 .umkm-contact {
     background: var(--background-color);
-    padding: 1.2rem; /* More padding */
-    border-radius: 10px; /* Slightly more rounded */
-    margin-top: 1.5rem; /* More space above contact */
-    border: 1px solid var(--border-color); /* Subtle border */
+    padding: 1.2rem;
+    border-radius: 10px;
+    margin-top: 1.5rem;
+    border: 1px solid var(--border-color);
     position: relative;
-    z-index: 2; /* Ensure contact info is above the pseudo-element */
+    z-index: 2;
 }
 
 .contact-item {
@@ -513,15 +507,15 @@ body.dark-mode .header.scrolled {
     margin-bottom: 0;
 }
 
-/* Statistics Section - ENHANCED VISUALS */
+/* Statistics Section - VISUAL DITINGKATKAN */
 .stats {
-    background: linear-gradient(90deg, var(--stats-gradient-start), var(--stats-gradient-end)); /* Vibrant blue gradient */
+    background: linear-gradient(90deg, var(--stats-gradient-start), var(--stats-gradient-end)); /* Gradasi biru cerah */
     color: white;
     text-align: center;
     transition: background 0.4s ease;
     padding: 6rem 5%;
     position: relative;
-    overflow: hidden; /* For any background elements */
+    overflow: hidden;
 }
 
 .stats .section-title {
@@ -530,24 +524,24 @@ body.dark-mode .header.scrolled {
 }
 
 .stats .section-title::after {
-    background: var(--accent-orange); /* Orange underline for contrast */
+    background: var(--accent-orange); /* Garis bawah oranye */
 }
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjusted for more flexibility */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 2.5rem;
     margin-top: 4rem;
 }
 
 .stat-item {
-    background: rgba(255, 255, 255, 0.15); /* Slightly more opaque background */
-    backdrop-filter: blur(8px); /* More blur for modern glass effect */
+    background: rgba(255, 255, 255, 0.15); /* Background agak transparan */
+    backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 3rem 1.8rem; /* More padding */
-    border-radius: 20px; /* More rounded */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    padding: 3rem 1.8rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
     display: flex;
     flex-direction: column;
@@ -575,15 +569,15 @@ body.dark-mode .header.scrolled {
 }
 
 .stat-item:hover {
-    transform: translateY(-12px); /* Stronger lift on hover */
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35); /* Much stronger shadow */
-    background: rgba(255, 255, 255, 0.25); /* More opaque on hover */
-    border-color: rgba(255, 255, 255, 0.5); /* Stronger border on hover */
+    transform: translateY(-12px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
 .stat-number {
     font-family: 'Montserrat', sans-serif;
-    font-size: 4rem; /* Even larger numbers */
+    font-size: 4rem;
     font-weight: 700;
     margin-bottom: 0.8rem;
     color: var(--stats-number-color);
@@ -592,7 +586,7 @@ body.dark-mode .header.scrolled {
 }
 
 .stat-label {
-    font-size: 1.3rem; /* Larger, clearer labels */
+    font-size: 1.3rem;
     opacity: 0.98;
     color: var(--stats-label-color);
     line-height: 1.4;
@@ -602,8 +596,8 @@ body.dark-mode .header.scrolled {
 /* Footer */
 .footer {
     background: var(--header-footer-background);
-    color: var(--dark-mode-secondary-text); /* Uses secondary text for lighter contrast */
-    padding: 4rem 5%; /* More padding */
+    color: var(--dark-mode-secondary-text); /* Menggunakan secondary text di dark mode */
+    padding: 4rem 5%;
     text-align: center;
     transition: background-color 0.4s ease, color 0.4s ease;
 }
@@ -614,7 +608,7 @@ body.dark-mode .header.scrolled {
 }
 
 .footer h3 {
-    color: var(--primary-green); /* Primary green for footer title */
+    color: var(--primary-green); /* Primary green untuk judul footer */
     margin-bottom: 1.5rem;
     font-size: 1.8rem;
     transition: color 0.3s ease;
@@ -629,20 +623,20 @@ body.dark-mode .header.scrolled {
 .footer-links {
     display: flex;
     justify-content: center;
-    gap: 2.5rem; /* Wider gap */
+    gap: 2.5rem;
     margin: 2.5rem 0;
     flex-wrap: wrap;
 }
 
 .footer-links a {
-    color: var(--dark-mode-secondary-text); /* Consistent with other text */
+    color: var(--dark-mode-secondary-text); /* Konsisten dengan teks lain */
     text-decoration: none;
     transition: color 0.3s ease, transform 0.2s ease;
     font-weight: 500;
 }
 
 .footer-links a:hover {
-    color: var(--accent-yellow); /* Yellow on hover for footer links */
+    color: var(--accent-yellow); /* Kuning saat hover */
     transform: translateY(-3px);
 }
 
@@ -660,8 +654,8 @@ body.dark-mode .header.scrolled {
 
 .fade-in {
     opacity: 0;
-    transform: translateY(40px); /* Larger initial translation */
-    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother cubic-bezier ease */
+    transform: translateY(40px);
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .fade-in.visible {
@@ -669,12 +663,12 @@ body.dark-mode .header.scrolled {
     transform: translateY(0);
 }
 
-/* --- Styling for Dark Mode Switch Toggle --- */
+/* --- Styling untuk Dark Mode Switch Toggle --- */
 .dark-mode-switch {
     position: relative;
     display: inline-block;
-    width: 60px; /* Wider switch */
-    height: 34px; /* Taller switch */
+    width: 60px;
+    height: 34px;
     margin-left: 2rem;
     cursor: pointer;
     vertical-align: middle;
@@ -698,97 +692,95 @@ body.dark-mode .header.scrolled {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #E0E0E0; /* Light grey for light mode off state */
+    background-color: #E0E0E0; /* Abu-abu terang untuk mode terang (off) */
     transition: 0.4s;
     border-radius: 34px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 4px; /* More padding */
+    padding: 4px;
     box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
 }
 
 input:checked + .slider {
-    background-color: var(--primary-green);
+    background-color: var(--primary-green); /* Warna hijau utama saat aktif */
 }
 
 input:focus + .slider {
-    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5); /* Accent green glow on focus */
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5); /* Efek fokus hijau */
 }
 
 .slider:before {
     position: absolute;
     content: "";
-    height: 26px; /* Larger toggle circle */
-    width: 26px; /* Larger toggle circle */
-    left: 4px; /* Adjusted position */
+    height: 26px;
+    width: 26px;
+    left: 4px;
     bottom: 4px;
     background-color: white;
     transition: 0.4s;
     border-radius: 50%;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.3); /* Stronger shadow */
+    box-shadow: 0 3px 8px rgba(0,0,0,0.3);
 }
 
 input:checked + .slider:before {
-    transform: translateX(26px); /* Adjusted translation */
+    transform: translateX(26px);
 }
 
-/* Icon centering fix (from previous step) */
+/* Penyesuaian centering ikon */
 .light-icon, .dark-icon {
     position: absolute;
-    font-size: 1.2rem; /* Ukuran ikon, sesuaikan jika perlu */
-    line-height: 1; /* Pastikan tinggi baris 1 untuk centering vertikal */
+    font-size: 1.2rem;
+    line-height: 1;
     transition: opacity 0.4s ease, transform 0.4s ease;
     top: 50%;
-    transform: translateY(-50%); /* Centering vertikal */
-    display: flex; /* Menggunakan flexbox untuk centering horizontal */
-    align-items: center; /* Centering vertikal flex */
-    justify-content: center; /* Centering horizontal flex */
-    width: 26px; /* Memberikan lebar yang sama dengan lingkaran slider */
-    height: 26px; /* Memberikan tinggi yang sama dengan lingkaran slider */
-    pointer-events: none; /* Agar klik tetap tembus ke checkbox */
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    pointer-events: none;
 }
 
 .light-icon {
-    left: 4px; /* Posisi sama dengan lingkaran slider */
-    color: #FFD54F; /* Bright yellow */
+    left: 4px;
+    color: #FFD54F; /* Kuning cerah */
 }
 
 .dark-icon {
-    right: 4px; /* Posisi sama dengan lingkaran slider, dari kanan */
-    color: #90CAF9; /* Light blue for moon */
+    right: 4px;
+    color: #90CAF9; /* Biru muda */
     opacity: 0;
-    /* Hilangkan translateX di sini, karena kita akan mengatur posisi akhir dengan JS jika diperlukan */
-    transform: translateY(-50%); /* Hanya translateY karena left/right mengatur posisi horizontal */
+    transform: translateY(-50%);
 }
 
-/* Perbarui transisi translateX untuk ikon saat mode gelap aktif */
 input:checked + .slider .light-icon {
     opacity: 0;
-    transform: translateY(-50%) translateX(-26px); /* Geser sejauh lebar lingkaran agar benar-benar hilang */
+    transform: translateY(-50%) translateX(-26px);
 }
 
 input:checked + .slider .dark-icon {
     opacity: 1;
-    transform: translateY(-50%) translateX(0); /* Kembali ke posisi semula (kanan) */
+    transform: translateY(-50%) translateX(0);
 }
 
-/* Dark Mode specific styles for the switch */
+/* Gaya khusus Dark Mode untuk switch */
 body.dark-mode .slider {
-    background-color: #4A5568; /* Darker grey for off state in dark mode */
+    background-color: #4A5568; /* Abu-abu gelap untuk off state di dark mode */
 }
 
 body.dark-mode input:checked + .slider {
-    background-color: var(--primary-green);
+    background-color: var(--primary-green); /* Warna hijau utama saat aktif */
 }
 
 body.dark-mode .slider:before {
-    background-color: #E2E8F0; /* Off-white for toggle circle in dark mode */
+    background-color: #E2E8F0; /* Off-white untuk lingkaran toggle di dark mode */
 }
 
 
 /* Responsive Design */
-@media (max-width: 992px) { /* Increased breakpoint for better tablet support */
+@media (max-width: 992px) {
     .nav-links {
         gap: 1.5rem;
     }
@@ -821,20 +813,20 @@ body.dark-mode .slider:before {
 @media (max-width: 768px) {
     .nav-links {
         display: none;
-        position: fixed; /* Use fixed for better mobile menu overlay */
-        top: 60px; /* Below header */
+        position: fixed;
+        top: 60px;
         left: 0;
         width: 100%;
-        height: calc(100vh - 60px); /* Full height minus header */
+        height: calc(100vh - 60px);
         background: var(--card-background-color);
         flex-direction: column;
         padding: 2rem 5%;
         box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        overflow-y: auto; /* Enable scrolling for many links */
-        transform: translateX(-100%); /* Start off-screen */
-        transition: transform 0.4s ease-out; /* Smooth slide-in */
-        align-items: flex-start; /* Align links to the left */
-        gap: 1.5rem; /* Spacing between mobile links */
+        overflow-y: auto;
+        transform: translateX(-100%);
+        transition: transform 0.4s ease-out;
+        align-items: flex-start;
+        gap: 1.5rem;
     }
 
     .nav-links.active {
