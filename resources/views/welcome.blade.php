@@ -248,7 +248,6 @@
     {{-- Memanggil komponen footer --}}
     <x-footer/>
 
-    <script src="{{ asset('js/desa-medalsari.js') }}"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     
     @stack('scripts') 
