@@ -24,7 +24,15 @@
             <ul class="list-unstyled">
                 <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                 <li><a href="{{ route('admin.umkms.index') }}">Manajemen UMKM</a></li>
-                <li><a href="{{ route('admin.wisata_desas.index') }}">Manajemen Wisata Desa</a>
+                <li><a href="{{ route('admin.view_desas.index') }}">Manajemen Potret Desa</a></li> {{-- Menggunakan nama yang lebih konsisten --}}
+                <li><a href="{{ route('admin.wisata_desas.index') }}">Manajemen Wisata Desa</a></li>
+                {{-- NEW: Tambahan untuk Kegiatan Desa --}}
+                <li><a href="{{ route('admin.kegiatan_desas.index') }}">Manajemen Kegiatan Desa</a></li>
+                {{-- NEW: Tambahan untuk Berita & Pengumuman --}}
+                <li><a href="{{ route('admin.beritas.index') }}">Manajemen Berita & Pengumuman</a></li>
+                {{-- NEW: Tambahan untuk Kearifan Lokal --}}
+                <li><a href="{{ route('admin.kearifan_lokals.index') }}">Manajemen Kearifan Lokal</a></li>
+                {{-- Anda bisa menambahkan link lain di sini jika ada manajemen lain di masa depan --}}
             </ul>
             <hr class="border-secondary">
             <form action="{{ route('admin.logout') }}" method="POST">

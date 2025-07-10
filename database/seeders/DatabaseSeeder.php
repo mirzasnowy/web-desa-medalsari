@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
         // Panggil seeder-seeder lain yang Anda miliki di sini
         // Misalnya, untuk menjalankan AdminUserSeeder:
         $this->call(AdminUserSeeder::class);
-
+        $this->call(KegiatanDesaSeeder::class);
+    // Panggil seeder lain jika ada
         // Jika Anda memiliki seeder lain di masa mendatang, tambahkan di sini:
         // $this->call([
         //     AnotherSeeder::class,

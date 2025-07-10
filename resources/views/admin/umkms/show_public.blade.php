@@ -8,12 +8,12 @@
 
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
         /* Variabel CSS harus didefinisikan di sini jika tidak ada di app.css/desa-medalsari.css
-           Jika sudah ada di file CSS lain, ini bisa dihapus */
+            Jika sudah ada di file CSS lain, ini bisa dihapus */
         :root {
             --primary-color: #4CAF50; /* Hijau Utama (contoh) */
             --primary-color-dark: #388E3C; /* Hijau Lebih Gelap */
@@ -128,6 +128,27 @@
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
+
+        /* Gaya baru untuk tautan WhatsApp */
+        .whatsapp-link {
+            display: flex; /* Untuk mensejajarkan ikon dan teks */
+            align-items: center;
+            gap: 8px; /* Jarak antara ikon dan teks */
+            text-decoration: none; /* Hilangkan garis bawah default */
+            color: var(--text-color); /* Warna teks default */
+            font-weight: bold; /* Teks lebih tebal */
+            transition: color 0.3s ease;
+        }
+
+        .whatsapp-link:hover {
+            color: #25D366; /* Warna hijau WhatsApp saat hover */
+        }
+
+        .whatsapp-link i {
+            color: #25D366; /* Warna ikon WhatsApp */
+            font-size: 1.5em; /* Ukuran ikon lebih besar */
+        }
+
         .detail-contact-item strong {
             color: var(--primary-color);
             font-size: 1.1em;
@@ -222,12 +243,15 @@
             @endif
             @if($umkm->kontak_telepon)
                 <div class="detail-contact-item">
-                    <i class="fas fa-phone"></i> <div><strong>Telepon:</strong> {{ $umkm->kontak_telepon }}</div>
+                    {{-- Menggunakan tautan WhatsApp --}}
+                    <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $umkm->kontak_telepon) }}" target="_blank" class="whatsapp-link">
+                        <i class="fab fa-whatsapp"></i> <span><strong>WhatsApp:</strong> {{ $umkm->kontak_telepon }}</span>
+                    </a>
                 </div>
             @endif
             @if($umkm->kontak_email)
                 <div class="detail-contact-item">
-                    <i class="fas fa-envelope"></i> <div><strong>Email:</strong> {{ $umkm->kontak_email }}</div>
+                    <i class="fas fa-envelope"></i> <div><strong>Email:</strong> <a href="mailto:{{ $umkm->kontak_email }}" class="whatsapp-link" style="color: inherit;">{{ $umkm->kontak_email }}</a></div>
                 </div>
             @endif
             @if($umkm->harga)
